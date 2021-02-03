@@ -25,7 +25,9 @@ public class CardController
 			return "index.html";
 		}
 		
-/*		@GetMapping("/allCards")
+		
+/*		
+ * @GetMapping("/allCards")
 		public List<Card> getAllCards()  throws InterruptedException, ExecutionException
 		{
 			return cardService.getAllCards();
@@ -63,7 +65,8 @@ public class CardController
 	    public String deleteCard(@RequestParam String name)
 	    {
 	        return cardService.deleteCard(name);
-	    }*/
+	    }
+	    */
 	    
 	    
 	    //testing methods
