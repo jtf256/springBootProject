@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th  = "https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<style>
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+<title>Jere Database Project</title>
+</head>
+<body>
+
+<div style="height:300px;
+width:640px;overflow:auto;
+background-color:lightblue;
+color:black;
+scrollbar-base-color:gold;
+font-family:sans-serif;
+padding:10px;">
+Connected to the firebase database
+	<table align = "center">
+		<tr>
+			<th> Card Name
+			</th>
+			<th> Quantity
+			</th>
+			<th> Actions
+			</th>
+		</tr>
+		<tr th:each ="listcard : ${cards} ">
+			<td th:text="${listcard.name}">filler</td>
+			<td th:text="${listcard.quantity}">2</td>
+			<td>
+			<a th:href="@{/up/{name}(name=${listcard.name})}">Update </a>
+			<a th:href="@{/del/{name}(name=${listcard.name})}"> Delete</a>
+			</td>
+		</tr>
+	</table>
+</div>
+<br>
+add a new card
+<br>
+<form action="#" th:action = "@{/addCard}" th:object = "${card}" method="post">
+	<label for="cName">Card: </label>
+	<input type="text" th:field ="*{name}" placeholder="name" ></input>
+	<label for="Quantity">Quantity: </label>
+	<input type="number" th:field = "*{quantity}"></input>
+	<button type="submit" >Submit</button>
+</form>
+
+<br> <br>
+
+
+</body>
+</html>

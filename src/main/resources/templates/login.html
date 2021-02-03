@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th  = "https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<style>
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+<title>Jere Database Project</title>
+</head>
+<body>
+
+<form action="#" th:action = "@{/login}" th:object = "${user}" method="post">
+	<label for="username">username: </label>
+	<input type="text" th:field ="*{username}" placeholder="name" ></input>
+	<label for="password">password: </label>
+	<input type="password" th:field = "*{password}"></input>
+	<button type="submit" >Submit</button>
+</form>
+
+<br> <br>
+<span th:text = "${error_msg}"></span>
+
+</body>
+</html>
